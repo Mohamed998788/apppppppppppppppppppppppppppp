@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>رفيق المعلم</title>
+    
+    <!-- Manifest للتطبيق -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- الأيقونات -->
+    <link rel="icon" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/splash.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/dialogs.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- شاشة البداية -->
+    <div class="splash-screen">
+        <div class="splash-logo">
+            <img src="logo.jpg" alt="رفيق المعلم">
+        </div>
+        <h1 class="splash-title">رفيق المعلم</h1>
+        <p class="splash-subtitle">إدارة المجموعات الدراسية</p>
+        <div class="splash-loader"></div>
+    </div>
+
+    <!-- مؤشر حالة الاتصال -->
+    <div id="connectionStatus" class="connection-status"></div>
+
+    <!-- الخلفية -->
+    <div class="animated-background"></div>
+
+    <!-- حاوية التطبيق -->
+    <div id="appContainer">
+        <!-- المحتوى الرئيسي -->
+        <div id="mainContentContainer">
+            <!-- سيتم تحميل المحتوى هنا -->
+        </div>
+    </div>
+
+    <!-- شريط التنقل السفلي -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" onclick="navigateToMainPage()" data-page="home">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </button>
+        <button class="nav-item" onclick="showGroups()" data-page="groups">
+            <i class="fas fa-users"></i>
+            <span>المجموعات</span>
+        </button>
+        <button class="nav-item" onclick="showStatistics()" data-page="stats">
+            <i class="fas fa-chart-pie"></i>
+            <span>الإحصائيات</span>
+        </button>
+        <button class="nav-item" onclick="window.location.href='schedule-new.html'" data-page="schedule">
+            <i class="fas fa-calendar-alt"></i>
+            <span>المواعيد</span>
+        </button>
+        <button class="nav-item" onclick="showSettings()" data-page="settings">
+            <i class="fas fa-cog"></i>
+            <span>الإعدادات</span>
+        </button>
+    </nav>
+
+    <!-- مكتبة SheetJS -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" 
+            onerror="loadXLSXFallback()"></script>
+
+    <!-- JavaScript Files -->
+    <script src="js/dialogs.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/students.js"></script>
+    <script src="js/months.js"></script>
+    <script src="js/groups.js"></script>
+    <script src="js/groupView.js"></script>
+    <script src="js/statistics.js"></script>
+    <script src="js/excel.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

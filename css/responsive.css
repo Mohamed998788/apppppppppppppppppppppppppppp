@@ -1,0 +1,143 @@
+/* التجاوب - Mobile First */
+
+/* الشاشات الصغيرة جداً */
+@media (max-width: 360px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .schedule-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .action-buttons button {
+        min-width: 100%;
+    }
+}
+
+/* الشاشات المتوسطة (Tablets) */
+@media (min-width: 768px) {
+    #appContainer {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .bottom-nav {
+        max-width: 600px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .groups-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+/* الشاشات الكبيرة (Desktop) */
+@media (min-width: 1024px) {
+    #appContainer {
+        max-width: 480px;
+        box-shadow: var(--elevation-4);
+        min-height: 100vh;
+        background: var(--background);
+    }
+    
+    body {
+        background: #e5e5e5;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .bottom-nav {
+        max-width: 480px;
+    }
+    
+    /* إظهار إطار الهاتف */
+    #appContainer::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 480px;
+        height: 100%;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        pointer-events: none;
+        z-index: 9999;
+    }
+}
+
+/* Safe Area للأجهزة ذات النوتش */
+@supports (padding-top: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .bottom-nav {
+        padding-bottom: env(safe-area-inset-bottom);
+        height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+    }
+    
+    #appContainer {
+        padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom) + 16px);
+    }
+}
+
+/* تحسينات الأداء */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* الوضع الأفقي */
+@media (orientation: landscape) and (max-height: 500px) {
+    .bottom-nav {
+        height: 56px;
+    }
+    
+    .nav-item span {
+        display: none;
+    }
+    
+    .nav-item {
+        padding: 12px 24px;
+    }
+    
+    #appContainer {
+        padding-bottom: 72px;
+    }
+}
+
+/* تحسينات اللمس */
+@media (hover: none) and (pointer: coarse) {
+    button, .btn, .card, .settings-item, .group-card, .student-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* زيادة حجم مناطق اللمس */
+    .nav-item {
+        min-height: 48px;
+    }
+    
+    input[type="checkbox"] {
+        min-width: 24px;
+        min-height: 24px;
+    }
+}

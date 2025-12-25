@@ -1,0 +1,29 @@
+{
+    "name": "رفيق المعلم",
+    "short_name": "رفيق المعلم",
+    "description": "تطبيق إدارة المجموعات الدراسية والحضور والمدفوعات",
+    "start_url": "./index-new.html",
+    "display": "standalone",
+    "background_color": "#f5f5f5",
+    "theme_color": "#6366f1",
+    "orientation": "portrait",
+    "lang": "ar",
+    "dir": "rtl",
+    "icons": [
+        {
+            "src": "logo.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "logo.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["education", "productivity"],
+    "screenshots": [],
+    "prefer_related_applications": false
+}

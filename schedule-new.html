@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>جدول المواعيد</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="schedule-container">
+        <!-- الصفحة الرئيسية -->
+        <section id="home" class="page-section active">
+            <!-- الإحصائيات -->
+            <div class="schedule-stats">
+                <div class="schedule-stat">
+                    <i class="fas fa-users"></i>
+                    <div class="value" id="totalGroups">0</div>
+                    <div class="label">مجموعات</div>
+                </div>
+                <div class="schedule-stat">
+                    <i class="fas fa-calendar-day"></i>
+                    <div class="value" id="todayTotal">0</div>
+                    <div class="label">اليوم</div>
+                </div>
+                <div class="schedule-stat">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="value" id="completedToday">0</div>
+                    <div class="label">انتهى</div>
+                </div>
+                <div class="schedule-stat">
+                    <i class="fas fa-clock"></i>
+                    <div class="value" id="remainingToday">0</div>
+                    <div class="label">متبقي</div>
+                </div>
+            </div>
+
+            <!-- البحث -->
+            <div class="date-search">
+                <h3><i class="fas fa-search"></i> البحث بالتاريخ</h3>
+                <div class="date-search-form">
+                    <input type="date" id="searchDate">
+                    <button onclick="searchLessons()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="searchResults" style="margin-top: 16px;"></div>
+            </div>
+        </section>
+
+        <!-- صفحة المواعيد -->
+        <section id="schedule-page" class="page-section">
+            <div id="currentDate" class="date-display"></div>
+            
+            <div class="lessons-section">
+                <h2><i class="fas fa-sun"></i> دروس اليوم</h2>
+                <div id="todayLessons"></div>
+            </div>
+            
+            <div class="schedule-divider"></div>
+            
+            <div class="lessons-section">
+                <h2><i class="fas fa-moon"></i> دروس الغد</h2>
+                <div id="tomorrowLessons"></div>
+            </div>
+        </section>
+
+        <!-- صفحة الإعدادات -->
+        <section id="settings-page" class="page-section">
+            <div class="page-title">
+                <i class="fas fa-cog"></i>
+                <span>إعدادات المواعيد</span>
+            </div>
+            
+            <div id="groupSchedules" class="schedule-settings"></div>
+            
+            <button class="save-fab" onclick="saveSchedules()">
+                <i class="fas fa-save"></i>
+                حفظ
+            </button>
+        </section>
+    </div>
+
+    <!-- شريط التنقل السفلي -->
+    <nav class="bottom-nav">
+        <a href="index-new.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <button class="nav-item active" onclick="showPage('home')" data-page="home">
+            <i class="fas fa-calendar-day"></i>
+            <span>اليوم</span>
+        </button>
+        <button class="nav-item" onclick="showPage('schedule')" data-page="schedule">
+            <i class="fas fa-calendar-alt"></i>
+            <span>المواعيد</span>
+        </button>
+        <button class="nav-item" onclick="showPage('settings')" data-page="settings">
+            <i class="fas fa-cog"></i>
+            <span>الإعدادات</span>
+        </button>
+    </nav>
+
+    <!-- JavaScript Files -->
+    <script src="js/schedule.js"></script>
+    <script src="js/schedule-ui.js"></script>
+</body>
+</html>

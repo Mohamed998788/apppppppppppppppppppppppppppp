@@ -1,0 +1,271 @@
+/* جدول الحضور - Mobile Optimized */
+
+.table-container {
+    overflow-x: auto;
+    overflow-y: visible;
+    margin: 0 -16px;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+    font-size: 0.85rem;
+}
+
+th, td {
+    padding: 10px 8px;
+    text-align: center;
+    border-bottom: 1px solid var(--outline);
+    white-space: nowrap;
+}
+
+th {
+    background: var(--surface-variant);
+    font-weight: 600;
+    color: var(--text-primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* العمود الأول (اسم الطالب) ثابت دائماً */
+td:first-child,
+th:first-child {
+    position: sticky;
+    right: 0;
+    background: var(--surface);
+    z-index: 20;
+    min-width: 130px;
+    max-width: 150px;
+    text-align: right;
+    box-shadow: -4px 0 8px rgba(0,0,0,0.1);
+    border-left: 2px solid var(--primary-color);
+}
+
+th:first-child {
+    background: var(--surface-variant);
+    z-index: 25;
+}
+
+/* تأثير عند التمرير */
+td:first-child::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0.05), transparent);
+    pointer-events: none;
+}
+
+/* العمود الثاني (السداد) شبه ثابت */
+td:nth-child(2),
+th:nth-child(2) {
+    position: sticky;
+    right: 130px;
+    background: var(--surface);
+    z-index: 15;
+    min-width: 70px;
+}
+
+th:nth-child(2) {
+    background: var(--surface-variant);
+    z-index: 20;
+}
+
+/* حقول الإدخال في الجدول */
+td input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-family: inherit;
+    background: var(--surface);
+}
+
+td input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+td input[type="number"] {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+td input[type="date"] {
+    padding: 4px;
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    width: 100px;
+}
+
+/* خلية اسم الطالب */
+.student-name-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 4px 0;
+}
+
+.student-name-cell input[type="text"] {
+    font-weight: 600;
+    color: var(--text-primary);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.student-name-cell input[type="text"]:hover {
+    background: var(--surface-variant);
+}
+
+.student-name-cell input[type="text"]:focus {
+    background: var(--surface);
+    border-color: var(--primary-color);
+}
+
+/* عداد الحصص */
+.lesson-info-badge {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.lesson-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: var(--primary-surface);
+    color: var(--primary-color);
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.lesson-counter i {
+    font-size: 0.65rem;
+}
+
+.lesson-counter.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+    animation: pulse 1.5s infinite;
+}
+
+.attendance-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: var(--success-light);
+    color: var(--success);
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.attendance-counter i {
+    font-size: 0.65rem;
+}
+
+/* زر حذف الطالب */
+.delete-student {
+    padding: 6px 10px;
+    background: var(--error-light);
+    color: var(--error);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.delete-student:active {
+    background: var(--error);
+    color: white;
+}
+
+/* إجراءات الشهر */
+.month-actions {
+    display: inline-flex;
+    gap: 4px;
+    margin-right: 8px;
+}
+
+.action-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.action-icon.delete-month {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.action-icon.add-month {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+/* حقل السداد الشهري */
+.monthly-payment-input {
+    width: 70px;
+    padding: 6px;
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.monthly-payment-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* صف فارغ */
+.empty-row td {
+    padding: 32px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.empty-row i {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+    opacity: 0.5;
+}

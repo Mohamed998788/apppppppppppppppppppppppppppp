@@ -1,0 +1,74 @@
+/* المتغيرات الأساسية للتصميم - Material Design Style */
+:root {
+    /* الألوان الرئيسية */
+    --primary-color: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --primary-surface: rgba(99, 102, 241, 0.08);
+    
+    --secondary-color: #ec4899;
+    --secondary-light: #f472b6;
+    
+    /* ألوان النص */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-disabled: #9ca3af;
+    --text-on-primary: #ffffff;
+    
+    /* ألوان الخلفية */
+    --background: #f5f5f5;
+    --surface: #ffffff;
+    --surface-variant: #f8fafc;
+    
+    /* ألوان الحدود */
+    --outline: #e5e7eb;
+    --outline-variant: #d1d5db;
+    
+    /* ألوان الحالة */
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --error: #ef4444;
+    --error-light: #fee2e2;
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+    --info: #3b82f6;
+    
+    /* الظلال - Material Design */
+    --elevation-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --elevation-2: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+    --elevation-3: 0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10);
+    --elevation-4: 0 15px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.05);
+    
+    /* الأبعاد */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* شريط التنقل */
+    --nav-height: 64px;
+    --bottom-nav-height: 64px;
+    --status-bar-height: 24px;
+    
+    /* الانتقالات */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* الخط */
+    --font-family: 'Cairo', 'Roboto', 'Segoe UI', sans-serif;
+}
+
+/* الوضع الداكن */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #121212;
+        --surface: #1e1e1e;
+        --surface-variant: #2d2d2d;
+        --text-primary: #e5e5e5;
+        --text-secondary: #a3a3a3;
+        --outline: #404040;
+        --outline-variant: #525252;
+    }
+}

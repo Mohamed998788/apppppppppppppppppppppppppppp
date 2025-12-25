@@ -1,0 +1,278 @@
+/* صفحة الجدول - Android Style */
+
+/* الحاوية الرئيسية */
+.schedule-container {
+    padding: 16px;
+    padding-bottom: calc(var(--bottom-nav-height) + 16px);
+    min-height: 100vh;
+    background: var(--background);
+}
+
+/* بطاقة الدرس */
+.lesson-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: var(--elevation-1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+.lesson-card:active {
+    transform: scale(0.99);
+}
+
+.lesson-card .time-badge {
+    min-width: 70px;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.lesson-card.upcoming .time-badge {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.lesson-card.past .time-badge {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.lesson-card .lesson-info {
+    flex: 1;
+}
+
+.lesson-card .group-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.lesson-card .lesson-status {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.lesson-card .remaining-time {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* قسم الدروس */
+.lessons-section {
+    margin-bottom: 24px;
+}
+
+.lessons-section h2 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lessons-section h2 i {
+    color: var(--primary-color);
+}
+
+/* عرض التاريخ */
+.date-display {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+    box-shadow: var(--elevation-1);
+}
+
+.date-display .today {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.date-display .tomorrow {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* البحث بالتاريخ */
+.date-search {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--elevation-1);
+}
+
+.date-search h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.date-search-form {
+    display: flex;
+    gap: 8px;
+}
+
+.date-search-form input[type="date"] {
+    flex: 1;
+    padding: 12px;
+    border: 1.5px solid var(--outline);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.date-search-form input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.date-search-form button {
+    padding: 12px 20px;
+}
+
+/* إعدادات المجموعات */
+.schedule-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.group-schedule-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--elevation-1);
+}
+
+.group-schedule-card h3 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.schedule-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.schedule-row label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.schedule-row select,
+.schedule-row input[type="time"] {
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid var(--outline);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: var(--surface);
+}
+
+.schedule-row select:focus,
+.schedule-row input[type="time"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* زر الحفظ */
+.save-fab {
+    position: fixed;
+    bottom: calc(var(--bottom-nav-height) + 24px);
+    left: 24px;
+    padding: 16px 24px;
+    border-radius: var(--radius-full);
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: var(--elevation-3);
+    z-index: 100;
+}
+
+.save-fab i {
+    margin-left: 8px;
+}
+
+/* إحصائيات الجدول */
+.schedule-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.schedule-stat {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: var(--elevation-1);
+}
+
+.schedule-stat i {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.schedule-stat .value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.schedule-stat .label {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+}
+
+/* الأقسام */
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Divider */
+.schedule-divider {
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), transparent);
+    border-radius: var(--radius-full);
+    margin: 24px 0;
+    opacity: 0.3;
+}
+
+/* حالة فارغة */
+.no-lessons {
+    text-align: center;
+    padding: 32px;
+    color: var(--text-secondary);
+}
+
+.no-lessons i {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}

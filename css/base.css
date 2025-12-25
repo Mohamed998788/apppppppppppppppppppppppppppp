@@ -1,0 +1,210 @@
+/* الأنماط الأساسية - Android App Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    direction: rtl;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* حاوية التطبيق */
+#appContainer {
+    max-width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(var(--bottom-nav-height) + 16px);
+}
+
+/* المحتوى الرئيسي */
+#mainContentContainer {
+    flex: 1;
+    padding: 16px;
+    padding-top: 8px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* العناوين */
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-title i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.1rem; }
+
+/* الأزرار - Material Design */
+button, .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* زر أساسي */
+.btn-primary, button:not(.btn-text):not(.btn-outlined):not(.nav-item):not(.fab) {
+    background: var(--primary-color);
+    color: var(--text-on-primary);
+    box-shadow: var(--elevation-1);
+}
+
+.btn-primary:active, button:not(.btn-text):not(.btn-outlined):not(.nav-item):not(.fab):active {
+    transform: scale(0.98);
+    box-shadow: var(--elevation-2);
+}
+
+/* زر نصي */
+.btn-text {
+    background: transparent;
+    color: var(--primary-color);
+    padding: 8px 16px;
+}
+
+.btn-text:active {
+    background: var(--primary-surface);
+}
+
+/* زر محدد */
+.btn-outlined {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+}
+
+/* زر الحذف */
+.btn-danger {
+    background: var(--error);
+    color: white;
+}
+
+/* زر عائم FAB */
+.fab {
+    position: fixed;
+    bottom: calc(var(--bottom-nav-height) + 24px);
+    left: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--primary-color);
+    color: white;
+    box-shadow: var(--elevation-3);
+    z-index: 100;
+    padding: 0;
+}
+
+.fab i {
+    font-size: 1.5rem;
+}
+
+.fab:active {
+    transform: scale(0.95);
+}
+
+/* تأثير الموجة Ripple */
+button::after, .btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 10%);
+    background-position: center;
+    background-size: 1000% 1000%;
+    opacity: 0;
+    transition: background-size 0.5s, opacity 0.3s;
+}
+
+button:active::after, .btn:active::after {
+    background-size: 0% 0%;
+    opacity: 1;
+    transition: 0s;
+}
+
+/* الحركات */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(100%); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Scrollbar مخصص */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--outline-variant);
+    border-radius: var(--radius-full);
+}
+
+/* إخفاء scrollbar على الموبايل */
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    body {
+        scrollbar-width: none;
+    }
+}

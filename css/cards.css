@@ -1,0 +1,548 @@
+/* البطاقات - Material Design Cards */
+
+/* بطاقة أساسية */
+.card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--elevation-1);
+    transition: var(--transition-normal);
+}
+
+.card:active {
+    transform: scale(0.99);
+}
+
+/* بطاقات الإحصائيات الصغيرة */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--elevation-1);
+    transition: var(--transition-fast);
+}
+
+.stat-card:active {
+    transform: scale(0.98);
+}
+
+.stat-card .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.stat-card .stat-icon.primary {
+    background: var(--primary-surface);
+    color: var(--primary-color);
+}
+
+.stat-card .stat-icon.success {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.stat-card .stat-icon.error {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.stat-card .stat-icon.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.stat-card .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.stat-card .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-card .stat-value small {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* بطاقة المجموعة الحالية */
+.current-group-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: var(--radius-xl);
+    padding: 20px;
+    color: white;
+    margin-bottom: 16px;
+    box-shadow: var(--elevation-2);
+}
+
+.current-group-card h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.current-group-card.empty {
+    background: var(--surface);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 32px;
+}
+
+.current-group-card.empty i {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    opacity: 0.5;
+}
+
+/* قائمة الطلاب في المجموعة الحالية */
+.attendance-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.attendance-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+}
+
+.attendance-item label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.attendance-item input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: white;
+    cursor: pointer;
+}
+
+.attendance-item .student-name {
+    font-weight: 500;
+}
+
+.attendance-item .lesson-badge {
+    background: rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* بطاقة التنبيه */
+.alert-card {
+    background: var(--warning-light);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.alert-card h3 {
+    color: #92400e;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alert-card h3 i {
+    color: var(--warning);
+}
+
+/* قائمة المتأخرين */
+.arrears-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.arrears-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.arrears-item:active {
+    background: var(--surface-variant);
+}
+
+.arrears-item .info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.arrears-item .name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.arrears-item .group {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.arrears-item .amount {
+    font-weight: 700;
+    color: var(--error);
+    font-size: 1rem;
+}
+
+/* بطاقات المجموعات */
+.groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.group-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--elevation-1);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.group-card:active {
+    transform: scale(0.99);
+    box-shadow: var(--elevation-2);
+}
+
+.group-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.group-card-header h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.group-card-header .arrow {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.group-card-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.group-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.group-stat .label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.group-stat .value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.group-stat .value.success { color: var(--success); }
+.group-stat .value.error { color: var(--error); }
+
+/* بطاقات الطلاب */
+.students-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.student-card {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    box-shadow: var(--elevation-1);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.student-card:active {
+    background: var(--surface-variant);
+}
+
+.student-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.student-card .name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.student-card .badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge.danger {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.badge.success {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.badge.primary {
+    background: var(--primary-surface);
+    color: var(--primary-color);
+}
+
+/* تفاصيل الطالب */
+.student-details {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--outline);
+    animation: fadeIn 0.2s ease-out;
+}
+
+.student-details.show {
+    display: block;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.detail-row .label {
+    color: var(--text-secondary);
+}
+
+.detail-row .value {
+    font-weight: 600;
+}
+
+/* ملخص المدفوعات */
+.payment-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.summary-item {
+    background: var(--surface-variant);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.summary-item .label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.summary-item .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.summary-item.success {
+    background: var(--success-light);
+}
+
+.summary-item.success .value {
+    color: var(--success);
+}
+
+.summary-item.danger {
+    background: var(--error-light);
+}
+
+.summary-item.danger .value {
+    color: var(--error);
+}
+
+/* عنوان الفترات */
+.periods-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.periods-title i {
+    color: var(--primary-color);
+}
+
+/* قائمة الفترات */
+.periods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* بطاقة الفترة */
+.period-card {
+    background: var(--surface-variant);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    border-right: 4px solid var(--outline);
+}
+
+.period-card.paid {
+    border-right-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.period-card.partial {
+    border-right-color: var(--warning);
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.period-card.overdue {
+    border-right-color: var(--error);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.period-card.current {
+    border-right-color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.period-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--outline);
+}
+
+.period-number {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.period-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.period-status.status-paid {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.period-status.status-partial {
+    background: var(--warning-light);
+    color: #92400e;
+}
+
+.period-status.status-overdue {
+    background: var(--error-light);
+    color: var(--error);
+}
+
+.period-status.status-current {
+    background: var(--primary-surface);
+    color: var(--primary-color);
+}
+
+.period-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.period-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.period-row span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.period-row span:first-child i {
+    width: 16px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.period-row span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.period-row.success span:last-child {
+    color: var(--success);
+}
+
+.period-row.danger span:last-child {
+    color: var(--error);
+}

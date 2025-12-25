@@ -1,0 +1,17 @@
+# تطبيق Android - لا يتم رفعه
+android-app/
+
+# ملفات النظام
+.DS_Store
+Thumbs.db
+*.log
+
+# ملفات IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ملفات مؤقتة
+*.tmp
+*.temp
